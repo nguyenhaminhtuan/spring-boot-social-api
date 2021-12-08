@@ -1,6 +1,6 @@
 package io.github.nguyenhaminhtuan.springbootsocialapi.dto.request;
 
-import io.github.nguyenhaminhtuan.springbootsocialapi.model.Gender;
+import io.github.nguyenhaminhtuan.springbootsocialapi.model.UserGender;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -18,7 +18,7 @@ public class UpdateUserRequest {
     @Size(max = 50)
     private String lastName;
 
-    private Gender gender;
+    private UserGender gender;
 
     @Past
     private LocalDate dateOfBirth;

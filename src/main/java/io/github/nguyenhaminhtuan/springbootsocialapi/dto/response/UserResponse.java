@@ -1,6 +1,6 @@
 package io.github.nguyenhaminhtuan.springbootsocialapi.dto.response;
 
-import io.github.nguyenhaminhtuan.springbootsocialapi.model.Gender;
+import io.github.nguyenhaminhtuan.springbootsocialapi.model.UserGender;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -13,6 +13,6 @@ public class UserResponse {
     private String lastName;
     private String avatarUrl;
     private String coverPhotoUrl;
-    private Gender gender;
+    private UserGender gender;
     private LocalDate dateOfBirth;
 }

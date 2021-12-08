@@ -5,6 +5,7 @@ import io.github.nguyenhaminhtuan.springbootsocialapi.dto.response.UserResponse;
 import io.github.nguyenhaminhtuan.springbootsocialapi.exception.UsernameAlreadyExistsException;
 import io.github.nguyenhaminhtuan.springbootsocialapi.mapper.UserMapper;
 import io.github.nguyenhaminhtuan.springbootsocialapi.model.User;
+import io.github.nguyenhaminhtuan.springbootsocialapi.model.UserRole;
 import io.github.nguyenhaminhtuan.springbootsocialapi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,8 +33,9 @@ public class RegistrationService {
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
+        user.setRole(UserRole.USER);
         userRepository.save(user);
-        log.info("Username {} registered", user.getUsername());
+        log.info("Username {} with role {} registered", user.getUsername(), user.getRole());
 
         return mapper.toUserResponse(user);
     }

@@ -27,7 +27,7 @@ public class AuthenticationService {
         Authentication authentication = this.authenticationManager.authenticate(token);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         UserPrincipal principal = (UserPrincipal) authentication.getPrincipal();
-        log.info("Username {} with authorities {} login at {}",
+        log.info("Username {} with authorities [{}] login at {}",
                 principal.getUsername(), principal.getAuthorities(), LocalDateTime.now());
         return new LoginResponse(authentication.isAuthenticated(), principal.getUsername());
     }

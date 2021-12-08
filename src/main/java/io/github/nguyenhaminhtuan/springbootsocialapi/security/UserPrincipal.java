@@ -3,9 +3,11 @@ package io.github.nguyenhaminhtuan.springbootsocialapi.security;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.github.nguyenhaminhtuan.springbootsocialapi.model.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Set;
 
 public class UserPrincipal implements UserDetails {
 
@@ -16,23 +18,23 @@ public class UserPrincipal implements UserDetails {
     }
 
     public Long getId() {
-        return this.user.getId();
+        return user.getId();
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Set.of(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
     }
 
     @Override
     @JsonIgnore
     public String getPassword() {
-        return this.user.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return this.user.getUsername();
+        return user.getUsername();
     }
 
     @Override
@@ -42,7 +44,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !this.user.isLocked();
+        return !user.isLocked();
     }
 
     @Override
@@ -52,6 +54,6 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return this.user.isEnabled();
+        return user.isEnabled();
     }
 }

@@ -47,7 +47,11 @@ public class User implements Serializable {
 
     @Column(columnDefinition = "int2")
     @Enumerated(EnumType.ORDINAL)
-    private Gender gender;
+    private UserRole role = UserRole.USER;
+
+    @Column(columnDefinition = "int2")
+    @Enumerated(EnumType.ORDINAL)
+    private UserGender gender;
 
     @Column(name = "date_of_birth")
     @Past
