@@ -3,7 +3,7 @@ package io.github.nguyenhaminhtuan.springbootsocialapi.dto.response;
 import io.github.nguyenhaminhtuan.springbootsocialapi.model.Gender;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 public class UserResponse {
@@ -14,5 +14,5 @@ public class UserResponse {
     private String avatarUrl;
     private String coverPhotoUrl;
     private Gender gender;
-    private LocalDateTime dateOfBirth;
+    private LocalDate dateOfBirth;
 }

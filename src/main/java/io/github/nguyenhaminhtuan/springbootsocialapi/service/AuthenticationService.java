@@ -21,6 +21,7 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public LoginResponse loginUser(LoginUserRequest request) {
+        log.debug("Logging in user with credentials {}", request);
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword());
         Authentication authentication = this.authenticationManager.authenticate(token);

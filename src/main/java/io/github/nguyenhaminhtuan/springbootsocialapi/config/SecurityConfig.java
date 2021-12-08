@@ -40,7 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                 .and()
-                .authorizeRequests().anyRequest().permitAll();
+                .authorizeRequests().antMatchers("/user").authenticated()
+                .anyRequest().permitAll();
     }
 
     @Bean
