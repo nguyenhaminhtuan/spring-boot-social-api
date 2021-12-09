@@ -38,7 +38,7 @@ public class CurrentUserController {
 
     @PatchMapping("/cover-photo")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updatCurrentUserCoverPhoto(@AuthenticationPrincipal UserPrincipal principal) {
+    public void updateCurrentUserCoverPhoto(@AuthenticationPrincipal UserPrincipal principal) {
         userService.updateUserCoverPhoto(principal.getId());
     }
 }
