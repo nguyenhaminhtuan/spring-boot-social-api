@@ -23,7 +23,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Set.of(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
+        return Set.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().name()));
     }
 
     @Override
