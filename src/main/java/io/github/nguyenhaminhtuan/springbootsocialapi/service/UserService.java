@@ -95,28 +95,4 @@ public class UserService {
     public void updateUserCoverPhoto(Long id) {
         throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
     }
-
-    @PreAuthorize("isAuthenticated()")
-    public void followUser(Long userId, Long followerId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Not found user with id %d", userId)));
-        User follower = userRepository.findById(followerId)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        String.format("Not found follower with id %d", followerId)
-                ));
-        user.getFollowing().add(follower);
-        userRepository.save(user);
-    }
-
-    @PreAuthorize("isAuthenticated()")
-    public void unfollowUser(Long userId, Long followerId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Not found user with id %d", userId)));
-        User follower = userRepository.findById(followerId)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        String.format("Not found follower with id %d", followerId)
-                ));
-        user.getFollowing().remove(follower);
-        userRepository.save(user);
-    }
 }

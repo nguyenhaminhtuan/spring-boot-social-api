@@ -1,10 +1,8 @@
 package io.github.nguyenhaminhtuan.springbootsocialapi.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -12,7 +10,10 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@ToString(exclude = {"password", "followers", "following"})
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @Entity(name = "users")
 public class User implements Serializable {
@@ -22,7 +23,6 @@ public class User implements Serializable {
 
     @Column
     @NotBlank
-    @Email
     private String username;
 
     @Column

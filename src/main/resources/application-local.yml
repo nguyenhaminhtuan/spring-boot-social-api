@@ -16,7 +16,7 @@ spring:
 
 logging:
   level:
-    root: WARN
-    org.springframework.web: INFO
+    root: INFO
+    org.springframework.web: DEBUG
     io.github.nguyenhaminhtuan: DEBUG
     org.hibernate.SQL: DEBUG

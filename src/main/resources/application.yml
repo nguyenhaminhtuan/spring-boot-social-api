@@ -33,6 +33,6 @@ spring:
 logging:
   level:
     root: WARN
-    org.springframework.web: WARN
+    org.springframework.web: INFO
     io.github.nguyenhaminhtuan: ${LOG_LEVEL}
     org.hibernate: ERROR

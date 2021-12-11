@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                 .and()
-                .authorizeRequests().antMatchers("/user").authenticated()
+                .authorizeRequests().antMatchers("/user", "/profiles/*/follow").authenticated()
                 .anyRequest().permitAll();
     }
 
